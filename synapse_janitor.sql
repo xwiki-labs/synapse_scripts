@@ -89,6 +89,9 @@ CREATE FUNCTION synapse_clean_unused_rooms()
     END;
 $$ LANGUAGE 'plpgsql';
 
+BEGIN TRANSACTION;
 
 SELECT synapse_clean_redacted_messages();
 SELECT synapse_clean_unused_rooms();
+
+COMMIT;
