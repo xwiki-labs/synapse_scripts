@@ -86,6 +86,7 @@ CREATE FUNCTION synapse_clean_unused_rooms()
         DELETE FROM stream_ordering_to_exterm AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
         DELETE FROM event_auth AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
         DELETE FROM appservice_room_list AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
+        DELETE FROM group_rooms AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
     END;
 $$ LANGUAGE 'plpgsql';
 
