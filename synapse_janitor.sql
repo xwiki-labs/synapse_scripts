@@ -57,17 +57,14 @@ CREATE FUNCTION synapse_clean_unused_rooms()
         DELETE FROM event_backward_extremities AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
         DELETE FROM event_edges AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
         DELETE FROM room_depth AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
-        DELETE FROM state_forward_extremities AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
         DELETE FROM events AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
         DELETE FROM event_json AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
         DELETE FROM state_events AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
         DELETE FROM current_state_events AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
         DELETE FROM room_memberships AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
-        DELETE FROM feedback AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
         DELETE FROM topics AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
         DELETE FROM room_names AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
         DELETE FROM rooms AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
-        DELETE FROM room_hosts AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
         DELETE FROM room_aliases AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
         DELETE FROM state_groups AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
         DELETE FROM state_groups_state AS x WHERE x.room_id IN (SELECT y.room_id FROM synapse_clean_unused_rooms__tmp AS y);
