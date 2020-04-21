@@ -1,3 +1,7 @@
+# UNMAINTAINED AND DANGEROUS
+These script aren't maintained and the synapse team had problems with people who used this, where it broke their server.
+The synapse team advises against using these scripts.
+
 # Synapse Scripts
 
 ## synapse_janitor.sql
